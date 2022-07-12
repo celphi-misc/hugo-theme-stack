@@ -1,0 +1,15 @@
+<section class="widget tagCloud">
+    {{ if .Context.Params.categories }}
+    <div class="widget-icon">
+        {{ partial "helper/icon" "categories" }}
+    </div>
+    <h2 class="widget-title section-title">{{ T "widget.categoriesCloud.title" }}</h2>
+    <div class="tagCloud-tags">
+        {{ range (.Context.GetTerms "categories") }}
+            <a href="{{ .Page.RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
+                {{ .Page.Title }}
+            </a>
+        {{ end }}
+    </div>
+    {{ end }}
+</section>
